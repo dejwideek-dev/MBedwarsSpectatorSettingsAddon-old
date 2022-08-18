@@ -1,0 +1,112 @@
+#Spectator Settings Addon for MBedwars by dejwideek
+
+#Material list (1.8.x): https://helpch.at/docs/1.8/org/bukkit/Material.html
+#Material list (1.9.x-1.12.x): https://helpch.at/docs/1.12/org/bukkit/Material.html
+#Material list (1.13+): https://helpch.at/docs/1.13/org/bukkit/Material.html
+
+#Don't change this!
+config-version: 2
+
+#Menu settings
+Menu:
+  #Menu title
+  Display-Name: "&8Spectator Settings"
+
+  #Menu size (1-54)
+  #1 row = 9
+  #2 rows = 18
+  #3 rows = 27
+  #4 rows = 36
+  #5 rows = 45
+  #6 rows = 54
+  Size: 27
+
+  #When player has selected specified speed effect or has enabled night vision effect
+  Active-Effect-Item-Enchant: true
+
+#Items in menu
+Items:
+  No-Speed:
+    Enabled: true
+    Material: LEATHER_BOOTS
+    Amount: 1
+    #Item slot (starts from 0)
+    Slot: 10
+    Display-Name: "&aNo Speed"
+    Lore:
+      Select:
+        - ""
+        - "&eClick to select!"
+      Selected:
+        - ""
+        - "&aSelected"
+  Speed-I:
+    Enabled: true
+    Material: CHAINMAIL_BOOTS
+    Amount: 1
+    #Item slot (starts from 0)
+    Slot: 11
+    Display-Name: "&aSpeed I"
+    Lore:
+      Select:
+        - ""
+        - "&eClick to select!"
+      Selected:
+        - ""
+        - "&aSelected"
+  Speed-II:
+    Enabled: true
+    Material: IRON_BOOTS
+    Amount: 2
+    #Item slot (starts from 0)
+    Slot: 12
+    Display-Name: "&aSpeed II"
+    Lore:
+      Select:
+        - ""
+        - "&eClick to select!"
+      Selected:
+        - ""
+        - "&aSelected"
+  Speed-III:
+    Enabled: true
+    Material: GOLD_BOOTS
+    Amount: 3
+    #Item slot (starts from 0)
+    Slot: 13
+    Display-Name: "&aSpeed III"
+    Lore:
+      Select:
+        - ""
+        - "&eClick to select!"
+      Selected:
+        - ""
+        - "&aSelected"
+  Speed-IV:
+    Enabled: true
+    Material: DIAMOND_BOOTS
+    Amount: 4
+    #Item slot (starts from 0)
+    Slot: 14
+    Display-Name: "&aSpeed IV"
+    Lore:
+      Select:
+        - ""
+        - "&eClick to select!"
+      Selected:
+        - ""
+        - "&aSelected"
+  Night-Vision:
+    Enabled: true
+    Material: EYE_OF_ENDER
+    Amount: 1
+    #Item slot (starts from 0)
+    Slot: 16
+    Display-Name: "&bNight Vision"
+    Lore:
+      Enable:
+        - ""
+        - "&eClick to enable!"
+      Disable:
+        - ""
+        - "&eClick to disable!"

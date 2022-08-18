@@ -1,0 +1,31 @@
+#Spectator Settings Addon for MBedwars by dejwideek
+
+#Don't change this!
+config-version: 1
+
+#Permissions for settings
+Permissions:
+  Speed-I: "bw.spectsettings.speed.1"
+  Speed-II: "bw.spectsettings.speed.2"
+  Speed-III: "bw.spectsettings.speed.3"
+  Speed-IV: "bw.spectsettings.speed.4"
+  Night-Vision: "bw.spectsettings.nightvision"
+  Reload: "bw.spectsettings.reload"
+
+#Messages for settings
+Messages:
+  Selected:
+    No-Speed: "&cDisabled Speed effect!"
+    Speed-I: "&eSelected &cSpeed I"
+    Speed-II: "&eSelected &cSpeed II"
+    Speed-III: "&eSelected &cSpeed III"
+    Speed-IV: "&eSelected &cSpeed IV"
+
+  Night-Vision:
+    Enabled: "&eEnabled Night Vision effect!"
+    Disabled: "&cDisabled Night Vision effect!"
+
+  #Available placeholder: %permission%
+  No-Permission: "&cYou must have permission &4%permission% &cto use this option!"
+
+  Reloaded: "&eSuccessfully reloaded configuration files!"

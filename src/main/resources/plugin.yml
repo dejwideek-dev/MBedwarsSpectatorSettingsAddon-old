@@ -1,0 +1,12 @@
+name: MBedwarsSpectatorSettingsAddon
+version: 1.0.0
+depend: [MBedwars]
+authors: [dejwideek]
+main: pl.dejwideek.mbwspectatorsettingsaddon.SpectSettingsAddon
+commands:
+  spectsettingsreload:
+    aliases:
+      - ssareload
+      - ssreload
+      - spectatorsettingsreload
+    description: Reload config files
