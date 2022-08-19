@@ -70,6 +70,17 @@ public class SpectSettingsAddon extends JavaPlugin implements Listener {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
+
+        new UpdateChecker(this, 104651).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                this.getLogger().info("You are using latest version.");
+            }
+            else {
+                this.getLogger().info("There is a new update available. (v" + version + ")");
+                this.getLogger().info("https://spigotmc.org/resources/104651/updates");
+            }
+        });
+
         Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(this), this);
         this.getCommand("spectsettingsreload").setExecutor(new ReloadCommand(this));
 
