@@ -1,5 +1,5 @@
 name: MBedwarsSpectatorSettingsAddon
-version: 1.0.1
+version: 1.0.2
 depend: [MBedwars]
 authors: [dejwideek]
 main: pl.dejwideek.mbwspectatorsettingsaddon.SpectSettingsAddon
