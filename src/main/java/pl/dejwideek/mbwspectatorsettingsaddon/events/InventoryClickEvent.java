@@ -46,8 +46,9 @@ public class InventoryClickEvent implements Listener {
                                 .translateAlternateColorCodes('&',
                                         plugin.menuConfig
                                                 .getString("Items.No-Speed.Display-Name")))) {
-                    if(p.hasPotionEffect(PotionEffectType.SPEED)) {
-                        p.removePotionEffect(PotionEffectType.SPEED);
+                    if(p.getWalkSpeed() != 0.2f && p.getFlySpeed() != 0.1f) {
+                        p.setWalkSpeed(0.2f);
+                        p.setFlySpeed(0.1f);
                         p.sendMessage(ChatColor
                                 .translateAlternateColorCodes('&',
                                         plugin.config
@@ -65,28 +66,16 @@ public class InventoryClickEvent implements Listener {
                                         plugin.menuConfig
                                                 .getString("Items.Speed-I.Display-Name")))) {
                     if(p.hasPermission(plugin.config.getString("Permissions.Speed-I"))) {
-                        if(p.hasPotionEffect(PotionEffectType.SPEED)) {
-                            PotionEffect potion = null;
-                            for(PotionEffect pot : p.getActivePotionEffects()) {
-                                if(pot.getType().equals(PotionEffectType.SPEED)) {
-                                    potion = pot;
-                                }
-                            }
-                            if(potion != null) {
-                                if(potion.getAmplifier() != 0) {
-                                    p.removePotionEffect(PotionEffectType.SPEED);
-                                }
-                                else return;
-                            }
-                            else return;
+                        if(p.getWalkSpeed() != 0.3f && p.getFlySpeed() != 0.2f) {
+                            p.setWalkSpeed(0.3f);
+                            p.setFlySpeed(0.2f);
+                            p.sendMessage(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            plugin.config
+                                                    .getString("Messages.Selected.Speed-I")));
+                            p.closeInventory();
                         }
-
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 0));
-                        p.sendMessage(ChatColor
-                                .translateAlternateColorCodes('&',
-                                        plugin.config
-                                                .getString("Messages.Selected.Speed-I")));
-                        p.closeInventory();
+                        else return;
                     }
                     else {
                         p.sendMessage(ChatColor
@@ -107,28 +96,16 @@ public class InventoryClickEvent implements Listener {
                                         plugin.menuConfig
                                                 .getString("Items.Speed-II.Display-Name")))) {
                     if(p.hasPermission(plugin.config.getString("Permissions.Speed-II"))) {
-                        if(p.hasPotionEffect(PotionEffectType.SPEED)) {
-                            PotionEffect potion = null;
-                            for(PotionEffect pot : p.getActivePotionEffects()) {
-                                if(pot.getType().equals(PotionEffectType.SPEED)) {
-                                    potion = pot;
-                                }
-                            }
-                            if(potion != null) {
-                                if(potion.getAmplifier() != 1) {
-                                    p.removePotionEffect(PotionEffectType.SPEED);
-                                }
-                                else return;
-                            }
-                            else return;
+                        if(p.getWalkSpeed() != 0.4f && p.getFlySpeed() != 0.3f) {
+                            p.setWalkSpeed(0.4f);
+                            p.setFlySpeed(0.3f);
+                            p.sendMessage(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            plugin.config
+                                                    .getString("Messages.Selected.Speed-II")));
+                            p.closeInventory();
                         }
-
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 1));
-                        p.sendMessage(ChatColor
-                                .translateAlternateColorCodes('&',
-                                        plugin.config
-                                                .getString("Messages.Selected.Speed-II")));
-                        p.closeInventory();
+                        else return;
                     }
                     else {
                         p.sendMessage(ChatColor
@@ -149,28 +126,16 @@ public class InventoryClickEvent implements Listener {
                                         plugin.menuConfig
                                                 .getString("Items.Speed-III.Display-Name")))) {
                     if(p.hasPermission(plugin.config.getString("Permissions.Speed-III"))) {
-                        if(p.hasPotionEffect(PotionEffectType.SPEED)) {
-                            PotionEffect potion = null;
-                            for(PotionEffect pot : p.getActivePotionEffects()) {
-                                if(pot.getType().equals(PotionEffectType.SPEED)) {
-                                    potion = pot;
-                                }
-                            }
-                            if(potion != null) {
-                                if(potion.getAmplifier() != 2) {
-                                    p.removePotionEffect(PotionEffectType.SPEED);
-                                }
-                                else return;
-                            }
-                            else return;
+                        if(p.getWalkSpeed() != 0.5f && p.getFlySpeed() != 0.4f) {
+                            p.setWalkSpeed(0.5f);
+                            p.setFlySpeed(0.4f);
+                            p.sendMessage(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            plugin.config
+                                                    .getString("Messages.Selected.Speed-III")));
+                            p.closeInventory();
                         }
-
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 2));
-                        p.sendMessage(ChatColor
-                                .translateAlternateColorCodes('&',
-                                        plugin.config
-                                                .getString("Messages.Selected.Speed-III")));
-                        p.closeInventory();
+                        else return;
                     }
                     else {
                         p.sendMessage(ChatColor
@@ -191,28 +156,15 @@ public class InventoryClickEvent implements Listener {
                                         plugin.menuConfig
                                                 .getString("Items.Speed-IV.Display-Name")))) {
                     if(p.hasPermission(plugin.config.getString("Permissions.Speed-IV"))) {
-                        if(p.hasPotionEffect(PotionEffectType.SPEED)) {
-                            PotionEffect potion = null;
-                            for(PotionEffect pot : p.getActivePotionEffects()) {
-                                if(pot.getType().equals(PotionEffectType.SPEED)) {
-                                    potion = pot;
-                                }
-                            }
-                            if(potion != null) {
-                                if(potion.getAmplifier() != 3) {
-                                    p.removePotionEffect(PotionEffectType.SPEED);
-                                }
-                                else return;
-                            }
-                            else return;
+                        if(p.getWalkSpeed() != 0.6f && p.getFlySpeed() != 0.5f) {
+                            p.setWalkSpeed(0.6f);
+                            p.setFlySpeed(0.5f);
+                            p.sendMessage(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            plugin.config
+                                                    .getString("Messages.Selected.Speed-IV")));
+                            p.closeInventory();
                         }
-
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 3));
-                        p.sendMessage(ChatColor
-                                .translateAlternateColorCodes('&',
-                                        plugin.config
-                                                .getString("Messages.Selected.Speed-IV")));
-                        p.closeInventory();
                     }
                     else {
                         p.sendMessage(ChatColor

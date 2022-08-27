@@ -10,7 +10,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
@@ -35,11 +34,11 @@ public class MenuSystem {
                 plugin.menuConfig.getInt("Menu.Size"),
                 ChatColor.translateAlternateColorCodes('&',
                         plugin.menuConfig.getString("Menu.Display-Name")));
-        String[] itemNames = new String[] {
+        String[] itemNames = new String[]{
                 "No-Speed", "Speed-I", "Speed-II", "Speed-III", "Speed-IV", "Night-Vision"
         };
 
-        for(String itemName : itemNames) {
+        for (String itemName : itemNames) {
             if (plugin.menuConfig.getBoolean("Items." + itemName + ".Enabled").equals(false))
                 continue;
 
@@ -53,131 +52,118 @@ public class MenuSystem {
                             '&',
                             plugin.menuConfig.getString("Items." + itemName + ".Display-Name")));
             ArrayList<String> loreList = new ArrayList<String>();
-            if(!itemName.equals("Night-Vision")) {
+            if (!itemName.equals("Night-Vision")) {
                 Player mp = plugin.menuPlayer;
 
-                if(mp.hasPotionEffect(PotionEffectType.SPEED)) {
-                    PotionEffect potion = null;
-                    for(PotionEffect pot : mp.getActivePotionEffects()) {
-                        if(pot.getType().equals(PotionEffectType.SPEED)) {
-                            potion = pot;
-                        }
-                    }
-                    if(potion != null) {
-                        if(potion.getAmplifier() == 0) {
-                            if(itemName.equals("Speed-I")) {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items.Speed-I.Lore.Selected")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                                if(plugin.menuConfig
-                                        .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
-                                    meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-                                }
-                            }
-                            else {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items." + itemName + ".Lore.Select")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                            }
-                        }
-                        if(potion.getAmplifier() == 1) {
-                            if(itemName.equals("Speed-II")) {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items.Speed-II.Lore.Selected")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                                if(plugin.menuConfig
-                                        .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
-                                    meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-                                }
-                            }
-                            else {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items." + itemName + ".Lore.Select")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                            }
-                        }
-                        if(potion.getAmplifier() == 2) {
-                            if(itemName.equals("Speed-III")) {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items.Speed-III.Lore.Selected")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                                if(plugin.menuConfig
-                                        .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
-                                    meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-                                }
-                            }
-                            else {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items." + itemName + ".Lore.Select")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                            }
-                        }
-                        if(potion.getAmplifier() == 3) {
-                            if(itemName.equals("Speed-IV")) {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items.Speed-IV.Lore.Selected")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                                if(plugin.menuConfig
-                                        .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
-                                    meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-                                }
-                            }
-                            else {
-                                for(String loreString : plugin.menuConfig
-                                        .getStringList("Items." + itemName + ".Lore.Select")) {
-                                    loreList.add(ChatColor
-                                            .translateAlternateColorCodes('&',
-                                                    loreString));
-                                    meta.setLore(loreList);
-                                }
-                            }
-                        }
-                    }
-                }
-                else {
-                    if(itemName.equals("No-Speed")) {
-                        for(String loreString : plugin.menuConfig
+                if (mp.getWalkSpeed() == 0.2f) {
+                    if (itemName.equals("No-Speed")) {
+                        for (String loreString : plugin.menuConfig
                                 .getStringList("Items.No-Speed.Lore.Selected")) {
                             loreList.add(ChatColor
                                     .translateAlternateColorCodes('&',
                                             loreString));
                             meta.setLore(loreList);
                         }
-                        if(plugin.menuConfig
+                        if (plugin.menuConfig
                                 .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
                             meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                         }
                     }
                     else {
-                        for(String loreString : plugin.menuConfig
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items." + itemName + ".Lore.Select")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                    }
+                }
+                if (mp.getWalkSpeed() == 0.3f) {
+                    if (itemName.equals("Speed-I")) {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items.Speed-I.Lore.Selected")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                        if (plugin.menuConfig
+                                .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
+                            meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+                        }
+                    } else {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items." + itemName + ".Lore.Select")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                    }
+                }
+                if (mp.getWalkSpeed() == 0.4f) {
+                    if (itemName.equals("Speed-II")) {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items.Speed-II.Lore.Selected")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                        if (plugin.menuConfig
+                                .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
+                            meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+                        }
+                    } else {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items." + itemName + ".Lore.Select")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                    }
+                }
+                if (mp.getWalkSpeed() == 0.5f) {
+                    if (itemName.equals("Speed-III")) {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items.Speed-III.Lore.Selected")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                        if (plugin.menuConfig
+                                .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
+                            meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+                        }
+                    } else {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items." + itemName + ".Lore.Select")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                    }
+                }
+                if (mp.getWalkSpeed() == 0.6f) {
+                    if (itemName.equals("Speed-IV")) {
+                        for (String loreString : plugin.menuConfig
+                                .getStringList("Items.Speed-IV.Lore.Selected")) {
+                            loreList.add(ChatColor
+                                    .translateAlternateColorCodes('&',
+                                            loreString));
+                            meta.setLore(loreList);
+                        }
+                        if (plugin.menuConfig
+                                .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
+                            meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+                        }
+                    }
+                    else {
+                        for (String loreString : plugin.menuConfig
                                 .getStringList("Items." + itemName + ".Lore.Select")) {
                             loreList.add(ChatColor
                                     .translateAlternateColorCodes('&',
@@ -190,21 +176,20 @@ public class MenuSystem {
             else {
                 Player p = plugin.menuPlayer;
 
-                if(p.hasPotionEffect(PotionEffectType.NIGHT_VISION)) {
-                    for(String loreString : plugin.menuConfig
+                if (p.hasPotionEffect(PotionEffectType.NIGHT_VISION)) {
+                    for (String loreString : plugin.menuConfig
                             .getStringList("Items.Night-Vision.Lore.Disable")) {
                         loreList.add(ChatColor
                                 .translateAlternateColorCodes('&',
                                         loreString));
                         meta.setLore(loreList);
                     }
-                    if(plugin.menuConfig
+                    if (plugin.menuConfig
                             .getBoolean("Menu.Active-Effect-Item-Enchant").equals(true)) {
                         meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
                     }
-                }
-                else {
-                    for(String loreString : plugin.menuConfig
+                } else {
+                    for (String loreString : plugin.menuConfig
                             .getStringList("Items.Night-Vision.Lore.Enable")) {
                         loreList.add(ChatColor
                                 .translateAlternateColorCodes('&',
