@@ -1,8 +1,24 @@
 #Spectator Settings Addon for MBedwars by dejwideek
 
-#Material list (1.8.x): https://helpch.at/docs/1.8/org/bukkit/Material.html
-#Material list (1.9.x-1.12.x): https://helpch.at/docs/1.12/org/bukkit/Material.html
-#Material list (1.13+): https://helpch.at/docs/1.13/org/bukkit/Material.html
+#https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java
+#https://github.com/Iridium-Development/IridiumColorAPI
+
+#Hex color: <SOLID:(hex without #)>
+#Example: "<SOLID:fdfdfd>hex color"
+
+#Hex gradient color:
+#- start variable: <GRADIENT:(hex without #)>
+#- end variable: </GRADIENT:(hex without #)>
+#Example: "<GRADIENT:000000>gradient</GRADIENT:ffffff>"
+
+#Hex rainbow color:
+#- start variable: <RAINBOW(saturation value)>
+#- end variable: </RAINBOW>
+#Smaller value: darker
+#Higher value: brighter
+#Example: "<RAINBOW1>rainbow</RAINBOW>"
+
+#This features works only on 1.16+ version
 
 #Don't change this!
 config-version: 2
@@ -29,6 +45,7 @@ Items:
   No-Speed:
     Enabled: true
     Material: LEATHER_BOOTS
+    Material-Data: 0
     Amount: 1
     #Item slot (starts from 0)
     Slot: 10
@@ -43,6 +60,7 @@ Items:
   Speed-I:
     Enabled: true
     Material: CHAINMAIL_BOOTS
+    Material-Data: 0
     Amount: 1
     #Item slot (starts from 0)
     Slot: 11
@@ -57,6 +75,7 @@ Items:
   Speed-II:
     Enabled: true
     Material: IRON_BOOTS
+    Material-Data: 0
     Amount: 2
     #Item slot (starts from 0)
     Slot: 12
@@ -71,6 +90,7 @@ Items:
   Speed-III:
     Enabled: true
     Material: GOLD_BOOTS
+    Material-Data: 0
     Amount: 3
     #Item slot (starts from 0)
     Slot: 13
@@ -85,6 +105,7 @@ Items:
   Speed-IV:
     Enabled: true
     Material: DIAMOND_BOOTS
+    Material-Data: 0
     Amount: 4
     #Item slot (starts from 0)
     Slot: 14
@@ -99,6 +120,7 @@ Items:
   Night-Vision:
     Enabled: true
     Material: EYE_OF_ENDER
+    Material-Data: 0
     Amount: 1
     #Item slot (starts from 0)
     Slot: 16
