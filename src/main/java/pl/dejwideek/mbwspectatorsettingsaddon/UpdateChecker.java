@@ -12,22 +12,26 @@ import java.util.function.Consumer;
 @SuppressWarnings("ALL")
 public class UpdateChecker {
 
-    private final JavaPlugin plg;
+    private final JavaPlugin plugin;
     private final int id;
 
-    public UpdateChecker(JavaPlugin plg, int id) {
-        this.plg = plg;
+    public UpdateChecker(JavaPlugin plugin, int id) {
+        this.plugin = plugin;
         this.id = 104651;
     }
 
     public void getVersion(final Consumer<String> consumer) {
-        Bukkit.getScheduler().runTaskAsynchronously(this.plg, () -> {
-            try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.id).openStream(); Scanner scanner = new Scanner(inputStream)) {
+        Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
+            try (InputStream inputStream =
+                         new URL("https://api.spigotmc.org/legacy/update.php?resource="
+                                 + this.id).openStream();
+                 Scanner scanner =
+                         new Scanner(inputStream)) {
                 if (scanner.hasNext()) {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                plg.getLogger().info("Unable to check for updates: " + exception.getMessage());
+                plugin.getLogger().info("Unable to check for updates: " + exception.getMessage());
             }
         });
     }
